@@ -1,0 +1,1 @@
+<div>{{$event->event_name->name}} {{$event->created_at->diffForHumans()}}<small class="text-muted d-block">Category: {{$event->event_name->category->name}}</small></div>

@@ -1,0 +1,1 @@
+<div>{{$eventName->name}} <small class="text-muted d-block">Category: {{$eventName->category->name}}</small></div>
