@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{event_name,Category};
+use App\{Event_name,Category};
 use Illuminate\Http\Request;
 
 class EventNameController extends Controller
@@ -56,7 +56,7 @@ class EventNameController extends Controller
      * @param  \App\event_name  $event_name
      * @return \Illuminate\Http\Response
      */
-    public function show(event_name $eventName)
+    public function show(Event_name $eventName)
     {
         return view('eventNames.show',compact('eventName'));
     }
@@ -67,7 +67,7 @@ class EventNameController extends Controller
      * @param  \App\event_name  $event_name
      * @return \Illuminate\Http\Response
      */
-    public function edit(event_name $eventName)
+    public function edit(Event_name $eventName)
     {
         $categories = Category::all();
         return view('eventNames.edit',compact('eventName','categories'));
@@ -80,7 +80,7 @@ class EventNameController extends Controller
      * @param  \App\event_name  $event_name
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, event_name $eventName)
+    public function update(Request $request, Event_name $eventName)
     {
         $this->validate(request(),[
             'name'=>'required',
@@ -98,7 +98,7 @@ class EventNameController extends Controller
      * @param  \App\event_name  $event_name
      * @return \Illuminate\Http\Response
      */
-    public function destroy(event_name $event_name)
+    public function destroy(Event_name $event_name)
     {
         $event_name->delete();
         return redirect('/');

@@ -2,7 +2,7 @@
 
 namespace App\Http\Controllers;
 
-use App\{event,category,Event_name};
+use App\{Event,Category,Event_name};
 use Illuminate\Http\Request;
 
 class EventController extends Controller
@@ -18,7 +18,7 @@ class EventController extends Controller
      */
     public function index()
     {
-        $events = event::latest()->get();
+        $events = Event::latest()->get();
         return view('events.index',compact('events'));
     }
 
@@ -54,7 +54,7 @@ class EventController extends Controller
      * @param  \App\event  $event
      * @return \Illuminate\Http\Response
      */
-    public function show(event $event)
+    public function show(Event $event)
     {
         return view('events.show',compact('event'));
     }
@@ -65,7 +65,7 @@ class EventController extends Controller
      * @param  \App\event  $event
      * @return \Illuminate\Http\Response
      */
-    public function edit(event $event)
+    public function edit(Event $event)
     {
         $eventNames = Event_name::all();
         return view('events.edit',compact('event','eventNames'));
@@ -78,7 +78,7 @@ class EventController extends Controller
      * @param  \App\event  $event
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, event $event)
+    public function update(Request $request, Event $event)
     {
         $this->validate(request(),[
             'event_name_id'=>'required'
@@ -94,7 +94,7 @@ class EventController extends Controller
      * @param  \App\event  $event
      * @return \Illuminate\Http\Response
      */
-    public function destroy(event $event)
+    public function destroy(Event $event)
     {
         $event->delete();
 
